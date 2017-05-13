@@ -4,7 +4,7 @@ img{border:0 none;vertical-align: top;}
 em,i{ font-style:normal;}
 a{ text-decoration:none;color: #fff;}
 a:hover{ color:#ff0;}
-body{font-size: 12px;font-family:"微软雅黑";color:#fff;}
+body{font-size: 0.16rem;font-family:"微软雅黑";color:#fff;}
 .swiper-container{height: 100%;}
 .slide01{position: relative;background: url(../img/slide04-bg.jpg);width: 100%;height: auto;background-size:100% 100%;}
 .slide02{position: relative;background: url(../img/slide02-bg.jpg);width: 100%;height: auto;background-size:100% 100%;}
@@ -13,7 +13,7 @@ body{font-size: 12px;font-family:"微软雅黑";color:#fff;}
 .slide05{position: relative;background: url(../img/slide05-bg.jpg);width: 100%;height: auto;background-size:100% 100%;}
 .slide01-img{position: absolute;left:30%;top:5%;width:3rem;height:3rem;}
 .slide01-img img{width:100%;height:100%;margin-left: -50%;}
-.slide01-text01{position: absolute;left: 20%;top: 50%;text-align: center;font-size: 1rem;}
+.slide01-text01{position: absolute;left: 20%;bottom: 5%;text-align: center;font-size: 1rem;}
 .slide01-text01 li{width: 1rem;height: auto;}
 .slide01-text02{position: absolute;right: 10%;top: 0;font-size: 0.5rem;width: 0.5rem;height: auto;line-height: 1rem;}
 .slide01-text03{position: absolute;right: 25%;top:15%;font-size: 0.5rem;width: 0.5rem;height: auto;line-height: 1rem;}
@@ -45,6 +45,7 @@ body{font-size: 12px;font-family:"微软雅黑";color:#fff;}
 
 .works{position: absolute;top: 20%;left: 0;text-align: center;}
 .slide05 h2{font-size: 0.8rem;text-align: center;margin-top: 0.5rem;}
+.slider05-text{font-size: 0.25rem;line-height: 1rem;text-align: center;}
 
 .works-img img{position: relative;width: 90%;height: 100%;}
 .works-img span{position: absolute;left:50%;bottom:-1rem;width: 5rem;font-size: 0.7rem;margin-left: -2.5rem;}
