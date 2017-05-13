@@ -45,7 +45,7 @@ body{font-size: 0.16rem;font-family:"微软雅黑";color:#fff;}
 
 .works{position: absolute;top: 20%;left: 0;text-align: center;}
 .slide05 h2{font-size: 0.8rem;text-align: center;margin-top: 0.5rem;}
-.slider05-text{font-size: 0.25rem;line-height: 1rem;text-align: center;}
+.slider05-text{position: absolute;left: 50%;bottom: 10%;font-size: 0.25rem;line-height: 1rem;text-align: center;color: #4f4f4f;width: 5rem;margin-left: -2.5rem;}
 
 .works-img img{position: relative;width: 90%;height: 100%;}
 .works-img span{position: absolute;left:50%;bottom:-1rem;width: 5rem;font-size: 0.7rem;margin-left: -2.5rem;}
