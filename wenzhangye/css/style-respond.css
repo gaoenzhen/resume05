@@ -1,0 +1,35 @@
+@media (max-width:980px){
+	#header{ min-width:100%;}
+	.head{width:100%;}
+	.nav{margin-left: 26px;}
+	.nav li{ margin-right: 10px;}
+	.search{ margin-left:62px;}
+}
+@media (max-width:900px){
+	.nav a{ font-size: 16px;}
+	.search{ margin-left:30px;}
+	#content{ width:auto;}
+	.content_link{width:100%;}
+	.content_comment{ padding-right: 10px;}
+	.content_comment textarea{ width:100%;}
+}
+
+@media (max-width:768px){
+	.logo{ margin-left:20%;}
+	#header{height:auto; padding-bottom: 20px; background-position: left bottom; background-color: #f7f7f7;}
+	.search{ clear: both;}
+	.content_link{ height:auto; padding: 20px 0; line-height: 24px; overflow:hidden; /* word-break:break-all; word-wrap:break-word; */}
+}
+@media (max-width:550px){
+	.logo{ margin-left:10%;}
+}
+@media (max-width:440px){
+	.logo{ margin-left:30%;}
+	.nav{ clear: both;}
+	#content{ padding-left: 8px; padding-right:8px;}
+	.content_top{ height:auto; overflow:hidden;}
+	.content_top a{ clear:both; float:left; margin-top: 8px;}
+}
+@media (max-width:385px){
+	.loginReg{clear: both; float: left; margin-left:28px;}
+}
