@@ -33,6 +33,8 @@ var swiper02 = new Swiper('.swiper-container02', {
             depth: 100,
             modifier: 1,
             slideShadows : true
-        }
+            
+        },
+        
     });
   };

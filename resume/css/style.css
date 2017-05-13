@@ -41,9 +41,12 @@ body{font-size: 12px;font-family:"微软雅黑";color:#fff;}
 .erwei img{width: 100%;height: 100%;margin-left:-50% ;}
 .contact{position: absolute;width: 100%;left: 50%;bottom: 10%;text-align: center;font-size: 0.4rem;line-height: 0.8rem;margin-left:-50% ;}
 .contact a{text-decoration: underline;}
+.tianjia{width: 100%;height: 1rem;text-align: center;font-size: 0.25rem;line-height: 1rem;}
 
 .works{position: absolute;top: 20%;left: 0;text-align: center;}
 .slide05 h2{font-size: 0.8rem;text-align: center;margin-top: 0.5rem;}
 
-.works-img img{width: 90%;height: 100%;}
-.works-img span{font-size: 0.7rem;}
+.works-img img{position: relative;width: 90%;height: 100%;}
+.works-img span{position: absolute;left:50%;bottom:-1rem;width: 5rem;font-size: 0.7rem;margin-left: -2.5rem;}
+.works-a{width: 5rem;height: 1rem;background: #56bee5;border-radius: 0.09rem;position: absolute;left: 50%;bottom: -2rem;margin-left: -2.5rem;	}
+.works-a a{display: block;width: 100%;height: 100%;line-height: 1rem;text-align: center;font-size: 0.5rem;}
