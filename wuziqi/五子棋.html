@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+body,ul,li,span,a{ margin:0; padding:0;}
+a{ text-decoration:none;}
+li{ list-style:none;}
+.clearfix{ *zoom:1;}
+.clearfix:after{ content:"."; display:block; visibility:hidden; height:0; font-size:0; clear:both;}
+body{ background:#cc7a52;}
+.box{ width:1020px; height:auto; margin:0 auto;}
+.box-left{ float:left; position:relative; width:155px; height:auto;}
+.arrow{ position:absolute; font-size:26px; height:26px; line-height:26px; left:65px; top:38px;}
+.black,.white{ display:block; width:30px; height:30px; border-radius:50%; box-shadow:2px 2px 6px #000;}
+.black{ 
+    background: -webkit-radial-gradient(#fff 0%,#000 60%); /* Safari 5.1 - 6.0 */
+    background: -o-radial-gradient(#fff 0%,#000 60%); /* Opera 11.6 - 12.0 */
+    background: -moz-radial-gradient(#fff 0%,#000 60%); /* Firefox 3.6 - 15 */
+    background: radial-gradient(#fff 0%,#000 60%); /* 标准的语法 */
+}
+.white{
+    background: -webkit-radial-gradient(#000 -100%,#fff 60%); /* Safari 5.1 - 6.0 */
+    background: -o-radial-gradient(#000 -100%,#fff 60%); /* Opera 11.6 - 12.0 */
+    background: -moz-radial-gradient(#000 -100%,#fff 60%); /* Firefox 3.6 - 15 */
+    background: radial-gradient(#000 -100%,#fff 60%); /* 标准的语法 */
+}
+.box-person{ padding-top:8px;}
+.box-person li{ height:55px; padding:25px 0 0 115px;}
+.box-btn{ display:block; width:80px; text-align:center; line-height:30px; color:#fff; font-size:14px; height:30px; border-radius:8px; background:#000; margin:45px 0 0 75px;}
+.box-right{ float:right; position:relative; width:800px; height:auto; margin-top:32px; padding: 3px 0 0 3px;}
+.box-right li{ float: left; width: 37px; height: 37px; border: #000 3px double; margin:-3px 0 0 -3px;  font-size: 10px;}
+.box-right .black,.white{ position: absolute; }
+</style>
+</head>
+
+<body>
+<div class="box clearfix" id="box">
+	<div class="box-left">
+    	<span id="arrow" class="arrow">=》</span>
+    	<ul class="box-person">
+        	<li><span class="black"></span></li>
+            <li><span class="white"></span></li>
+        </ul>
+        <a class="box-btn" href="javascript:void(0)">重新开始</a>
+    </div>
+    <div class="box-right" id="QP">
+        <ul class="clearfix">
+            
+        </ul>
+       <!--  <span class="white" style=" left: -20px; top: -20px;"></span>
+       <span class="black" style=" left: 100px; top: 60px;"></span> -->
+    </div>
+</div>
+
+<script>
+var boxBtnNode=document.querySelector('.box-btn');
+var ulNode=document.querySelector("#QP ul");
+var arrowNode=document.querySelector("#arrow");
+var arrChess=[];//全局的二维数组;值为true表示可以落子；其他表示已落子：字符串"white"和"black"
+function chessBoard(rows){//创建棋盘;一行是20个；rows需要几行
+    var frag=document.createDocumentFragment();
+    for(var y=0;y<=rows;y++){
+        arrChess[y]=[];
+        for(var x=0;x<=20;x++){
+            arrChess[y][x]=true;
+            if(x!=20 && y!=rows){//数组的坐标比实际格子多一列和一行
+                var liNode=document.createElement("li");
+                //liNode.innerHTML="x:"+x+",y:"+y;
+                frag.appendChild(liNode);
+            }
+        }
+    }
+    console.log(arrChess);
+    ulNode.appendChild(frag);
+};
+
+chessBoard(10);
+
+
+boxBtnNode.onclick=function(){//点击刷新页面
+    window.location.reload();
+};
+
+var chessBool=true;//false表示落白子，true表示落黑子
+var QPnode=document.querySelector("#QP");
+var chessPWH=40;//表示棋盘格子的宽度和高度
+var chessWH=30;//表示棋子的宽度高度
+QPnode.onclick=function(e){//落子操作
+    var event=e || window.event;//事件对象
+    var x=event.clientX-this.offsetLeft+document.body.scrollLeft+document.documentElement.scrollLeft;//坐标x;
+    var y=event.clientY-this.offsetTop+document.body.scrollTop+document.documentElement.scrollTop;//坐标y
+    //console.log(x,y);
+    var chessX=Math.round(x/chessPWH);
+    var chessY=Math.round(y/chessPWH);
+    //console.log(chessX,chessY);
+    //console.log(arrChess[chessY][chessX]);
+    if(arrChess[chessY][chessX]===true){//表示没有棋子，可落子
+        
+        var spanNode=document.createElement('span');
+        var chessColor;
+        if(chessBool){//黑子
+            chessColor="black";
+            spanNode.className="black";
+            chessBool=false;
+            arrChess[chessY][chessX]="black";
+            arrowNode.style.top="118px";
+        }
+        else{//白子
+             chessColor="white";
+             spanNode.className="white";
+             chessBool=true;
+             arrChess[chessY][chessX]="white";
+             arrowNode.style.top="38px";
+        }
+        spanNode.style.left=(chessX*chessPWH-chessWH/2)+"px";
+        spanNode.style.top=(chessY*chessPWH-chessWH/2)+"px";
+        QPnode.appendChild(spanNode);
+        //判断胜负的函数
+        setTimeout(function(){
+            win(chessX,chessY,chessColor);
+        },20);
+    }
+    else{//不能落子
+        alert("已有棋子！");
+    }
+};
+
+function win(x,y,color){
+    //横向
+    var num=0;
+    for(var i=x-4;i<=x+4;i++){
+        if(i>=0 && i<=20){//保证数组的位置存在
+            if(arrChess[y][i]==color){
+                num++;
+            }
+            else{
+                num=0;
+            }
+            if(num==5){
+                alert(color+"赢了！");
+                return window.location.reload();//刷新页面; 重新开始
+            }
+        }
+    }
+
+    //竖向
+    var num=0;
+    for(var i=y-4;i<=y+4;i++){
+        if(i>=0 && i<=10){//保证数组的位置存在
+            if(arrChess[i][x]==color){
+                num++;
+            }
+            else{
+                num=0;
+            }
+            if(num==5){
+                alert(color+"赢了！");
+                return window.location.reload();
+            }
+        }
+    }
+
+    //斜向下
+    var num=0;
+    for(var i=x-4,j=y-4;i<=x+4,j<=y+4;i++,j++){
+        if(i>=0 && i<=20 && j>=0 && j<=10){//保证数组的位置存在
+            if(arrChess[j][i]==color){
+                num++;
+            }
+            else{
+                num=0;
+            }
+            if(num==5){
+                alert(color+"赢了！");
+                return window.location.reload();
+            }
+        }
+    }
+
+    //斜向上
+    var num=0;
+    for(var i=x-4,j=y+4;i<=x+4,j>=y-4;i++,j--){
+        if(i>=0 && i<=20 && j>=0 && j<=10){//保证数组的位置存在
+            if(arrChess[j][i]==color){
+                num++;
+            }
+            else{
+                num=0;
+            }
+            if(num==5){
+                alert(color+"赢了！");
+                return window.location.reload();
+            }
+        }
+    }
+};
+</script>
+</body>
+</html>
